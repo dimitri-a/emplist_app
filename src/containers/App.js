@@ -5,43 +5,43 @@ import PropTypes from 'prop-types';
 import { itemsFetchData } from '../actions/items';
 import { connect } from 'react-redux';
 import '../App.css';
+import Axios from 'axios';
 
 class App extends Component {
 
+  constructor(props)
+  {
+    super(props);
+    this.state ={companyInfo:{},employees:[]}
+
+  }
+
   componentDidMount() {
-    this.props.fetchData('./sample-data.json');
+   Axios.get('./sample-data.json').then(
+     (data) => {
+       debugger;
+       this.setState({companyInfo:data.data.companyInfo});
+       this.setState({employees:data.data.employees});
+     }
+   )
   }
 
   render() {
     return (
       <div className='container'>
-        <Header companyInfo={this.props.companyInfo}  />
-        <List employees={this.props.employees} />
+        <Header companyInfo={this.state.companyInfo}  />
+        <List employees={this.state.employees} />
       </div>
     );
   }
 }
 
-App.propTypes = {
-  fetchData: PropTypes.func.isRequired,
-  items: PropTypes.array.isRequired,
-  hasError: PropTypes.bool.isRequired,
-  isLoading: PropTypes.bool.isRequired
-};
+// App.propTypes = {
+//   fetchData: PropTypes.func.isRequired,
+//   items: PropTypes.array.isRequired,
+//   hasError: PropTypes.bool.isRequired,
+//   isLoading: PropTypes.bool.isRequired
+// };
 
-const mapStateToProps = (state) => {
-  return {
-    employees: state.items.employees,
-    companyInfo:state.items.companyInfo,
-    hasError: state.itemsHaveError,
-    isLoading: state.itemsAreLoading
-  };
-};
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchData: (url) => dispatch(itemsFetchData(url))
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App
