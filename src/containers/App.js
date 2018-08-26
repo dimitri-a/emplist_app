@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import Header from '../components/Header';
 import List from '../components/List';
 import PropTypes from 'prop-types';
-import { itemsFetchData } from '../actions/items';
-import { connect } from 'react-redux';
+
 import '../App.css';
 import Axios from 'axios';
 
