@@ -8,17 +8,15 @@ const List = ({ employees }) => {
       <div>
         <h3>Our Employees</h3>
         <hr />
-        <div className="row">
-          <div>
-            {
-              employees.map
-                (
-                (emp, id) => (
-                  <Employee key={id} details={emp}></Employee>
-                )
-                )
-            }
-          </div>
+        <div className="row">=
+          {
+            employees.map
+              (
+              (emp, id) => (
+                <Employee key={id} details={emp}></Employee>
+              )
+              )
+          }s
         </div>
       </div>
     ) :

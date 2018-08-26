@@ -18,7 +18,6 @@ class App extends Component {
   componentDidMount() {
    Axios.get('./sample-data.json').then(
      (data) => {
-       debugger;
        this.setState({companyInfo:data.data.companyInfo});
        this.setState({employees:data.data.employees});
      }
