@@ -4,6 +4,9 @@ export default class Modal extends Component {
     render() {
         const coverClass = this.props.modalOpened ? 'modal-cover modal-cover-active' : 'modal-cover'
         const containerClass = this.props.modalOpened ? 'modal-container modal-container-active' : 'modal-container'
+        
+        const {details} = this.props;
+        
         return (
             <div>
                 <div className={containerClass}>
@@ -11,19 +14,19 @@ export default class Modal extends Component {
                         <button onClick={this.toggle} className="close"/>
                         <div className='employee'>
                             <div className="col-lg-4 space">
-                                <img src={this.props.details.avatar} alt=""/>
-                                <div className='joined'>{this.props.details.jobTitle}</div>
-                                <div>{this.props.details.age}</div>
-                                <div>{new Date(this.props.details.dateJoined).toLocaleDateString()}</div>
+                                <img src={details.avatar} alt=""/>
+                                <div className='joined'>{details.jobTitle}</div>
+                                <div>{details.age}</div>
+                                <div>{new Date(details.dateJoined).toLocaleDateString()}</div>
                             </div>
 
                             <div className="col-lg-8 detail">
                                 <div>
-                                <span className='name'> {this.props.details.firstName} &nbsp;
-                                    {this.props.details.lastName}</span>
+                                <span className='name'> {details.firstName} &nbsp;
+                                    {details.lastName}</span>
                                     <hr/>
                                     <div>
-                                        {this.props.details.bio.slice(0, 80)}
+                                        {details.bio.slice(0, 80)}
                                     </div>
                                 </div>
                             </div>

@@ -13,10 +13,10 @@ const List = ({ employees }) => {
             employees.map
               (
               (emp, id) => (
-                <Employee key={id} details={emp}></Employee>
+                <Employee key={id} employee={emp}></Employee>
               )
               )
-          }s
+          }
         </div>
       </div>
     ) :
