@@ -53,13 +53,6 @@ describe('components', () => {
       const { output, props } = setup()
       //should be 3
       expect(output.props.children.props.children.length).toBe(3)
-
-      //expect(output.props.children.props.children.length).toBe(2)
-    //   output.props.children.forEach((employee, i) => {
-    //     expect(employee.type).toBe(Employee)
-    //     expect(Number(employee.key)).toBe(props.employees[i].id)
-    //     expect(employee.props.todo).toBe(props.employees[i])
-    //   })
     })
   })
 })
